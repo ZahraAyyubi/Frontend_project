@@ -1,0 +1,983 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>About-Enfold Health Coach</title>
+<script src="js/jquery-3.4.1.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+
+<script src="js/jquery.easing.js"></script>
+<script src="bootstrap-4.3.1/dist/js/bootstrap.js"></script>
+<link rel="stylesheet" type="text/css" href="bootstrap-4.3.1/dist/css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="fontawesome-free/css/all.min.css">
+<link rel="stylesheet" type="text/css" href="fonts/css.css">
+<link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Caveat:400,700%7COpen+Sans:400,600%7CLato:300,400,700" id="avia-google-webfont">
+<link rel="icon" href="https://kriesi.at/files/favicon.png" type="image/png">
+<style type="text/css">
+
+@font-face {font-family: 'lifestyles'; font-weight: normal; font-style: normal;
+src: url('https://kriesi.at/themes/enfold-health-coach/wp-content/uploads/sites/62/avia_fonts/lifestyles/lifestyles.eot');
+src: url('https://kriesi.at/themes/enfold-health-coach/wp-content/uploads/sites/62/avia_fonts/lifestyles/lifestyles.eot?#iefix') format('embedded-opentype'), 
+url('https://kriesi.at/themes/enfold-health-coach/wp-content/uploads/sites/62/avia_fonts/lifestyles/lifestyles.woff') format('woff'), 
+url('https://kriesi.at/themes/enfold-health-coach/wp-content/uploads/sites/62/avia_fonts/lifestyles/lifestyles.ttf') format('truetype'), 
+url('https://kriesi.at/themes/enfold-health-coach/wp-content/uploads/sites/62/avia_fonts/lifestyles/lifestyles.svg#lifestyles') format('svg');
+} 
+</style>
+<style>
+
+ body{
+	font-family: 'Open Sans','HelveticaNeue','Helvetica Neue',Helvetica,Arial,sans-serif;
+	background-color: #719430;
+}
+.main-container{
+	width: 100%;
+	background-color: #719430;
+	overflow:hidden;
+	padding-top:88px;
+}
+header{
+	width:100%;
+	display:flex;
+	justify-content:space-between;
+	position:fixed;
+	top:0;
+	left:0;
+	z-index:999999;
+	padding:0 10%;
+	background-color: #fff;
+}
+header #topMenu
+{	width:50%;
+	height:100%;
+	text-align:center;
+	padding:4px 0;
+	display:block;
+}
+
+
+#topMenu > ul
+{	
+	height:100%;
+	margin: 0;
+	
+	list-style-type:none;
+	float:right;
+	display:flex;
+}
+#topMenu > ul li{
+	height:100%;
+	position:relative;
+	margin: 0;
+	padding:0 9px;
+}
+#topMenu > ul li a
+{	height:100%;
+	display:block;
+	text-decoration:none;
+	color: #808080;
+	padding:10px 5px;
+	font-size:14px;
+	font-weight:bold;
+	font-family: 'Open Sans','HelveticaNeue','Helvetica Neue',Helvetica,Arial,sans-serif;
+	
+  line-height: 60px;
+	cursor: pointer;
+}
+#topMenu >ul li:hover a{
+	color: #070707;
+	
+}
+#topMenu >ul li:hover a span{
+	border-color:#070707 !important;
+	
+}
+
+a.active span{
+	color:rgba(11,11,11,1.00) !important;
+	
+}
+.fa-search{
+	font-size:10px;
+}
+#topMenu ul li:hover
+{
+	color: rgba(154,154,154,1.00);
+}
+
+.has_submenu ul
+{ width:180px;
+	height:120px !important;
+	position:absolute;
+	top:100%;
+	left:0;
+	padding: 0;
+	margin:0;
+	list-style-type:none;
+	background-color: #ffffff;
+  opacity:0;
+	transition:.5s;
+}
+
+.has_submenu li
+
+{	
+	width: 100%;
+	height:40px !important;
+	text-align: left;
+	float:none !important;
+}
+.has_submenu li:hover
+{	background-color: #E3DFDF;
+	
+}
+.has_submenu li:hover span
+{	color: #2F2E2E;
+	
+}
+.has_submenu li a{
+	width: 100%;
+	height:100%;
+	padding: 0!important;
+	line-height:40px !important;
+}
+.has_submenu li a span
+{	text-align:left;
+	font-size:12px;
+	font-weight:normal;
+	color: #808080;
+}
+.has_submenu a:hover ~ ul
+{
+	opacity:1;
+}
+#nav-itemes{
+	position:relative;
+	display:flex;
+	left:0;
+	height:88px;
+}
+.nav-btn{
+	width: 40px;
+	height: 100%;
+	background-color: transparent;
+	border:0;
+	display:none;
+	/*
+	top:21px;
+	right:50px;*/
+	outline:none !important;
+}
+.icon-bar{
+	background-color: #808080;
+  display: block;
+  width: 22px;
+  height: 2px;
+  border-radius: 1px;
+	transition:.5s;
+	margin:0 auto;
+}
+#search-item{
+	
+	width: 40px;
+	height: 100%;
+	font-size:10px;
+	color:#808080;
+	text-align:center;
+	line-height:88px;
+	
+}
+.dash{
+	display:none;
+}
+.popoverContent{
+	display:none;
+	
+}
+.search-btn{
+	 background-color: #719430;
+	 
+}
+[type=search]{
+	padding: 12px -6px 12px 5px;
+  background-color: #f9f9f9;
+  color: #808080;
+	border-radius: 0px;
+	border:none;
+	
+}
+[type=search]:focus{
+	box-shadow:none !important;
+	background-color: #f9f9f9 !important;
+}
+.popover{
+	box-shadow: 0px 3px 13px 0px rgba(0,0,0,0.2) !important;
+	top:-10px !important;
+	left:-110px !important;
+	border-radius: 2px;
+	z-index:9999999;
+}
+.popover .arrow{
+	left:240px !important;
+}
+.custom-devider{
+	width: 100%;
+	height:15px;
+	position:relative;
+}
+.cell{
+
+	height: 100%;
+}
+.cell1{
+  background-color: #719430;
+}
+.cell2{
+  background-color: #92bb46;
+}
+.cell3{
+  background-color: #acd464;
+}
+.cell4{
+  background-color: #e1fbb2;
+}
+#hello{
+	width: 100%;
+	position: relative;
+	background-color: #fff;
+}
+.part{
+	padding:107px  100px;
+}
+
+.part_1 h1{
+	font-size: 70px;
+	font-weight:lighter;
+	color:#222222;
+	font-family: 'Caveat','HelveticaNeue','Helvetica Neue',Helvetica,Arial,sans-serif;
+	margin-bottom:50px;
+}
+.part_1 section p{
+	color: #999999;
+}
+.part_1 section p a{
+	color: #719430;
+	text-decoration: none;
+}
+.part_1 section p a:hover{
+	text-decoration: underline;
+}
+    
+.part_1 > span{
+	color: #719430;
+	display:block;
+	font-size:30px;
+  font-family: 'Caveat','HelveticaNeue','Helvetica Neue',Helvetica,Arial,sans-serif;
+	margin-top:50px;
+	
+}
+.part_2{
+	background:url(images/healthy-lifestyle-m.jpg) center right no-repeat scroll; 
+	background-size:cover;
+	color:#F9F7F7;
+}
+#proposal_box{
+	width: 100%;
+	
+}
+#proposal_pic{
+	background: url(images/yoga_me-1030x687.jpg) center right no-repeat scroll;
+	background-size:cover;
+}
+#proposal_content{
+	padding:120px 100px;
+	background:#FFFFFF url(images/food-bg-3.jpg) bottom right no-repeat scroll;
+	background-size: contain !important;
+}
+
+#inner_content h1{
+	font-size:45px;
+	white-space: normal;
+	color: #222222;
+	font-family: 'Caveat','HelveticaNeue','Helvetica Neue',Helvetica,Arial,sans-serif;
+}
+#inner_content h1 span{
+	color: #719430;
+}
+#inner_content section p{
+  color: #9c9c9c;
+	line-height: 1.6em;
+	margin: 0.85em 0;
+	
+}
+#inner_content section ul{
+	color:#9c9c9c;
+}
+#about_section{
+	width: 100%;
+	background:url(images/wheat-background.jpg) no-repeat center center scroll;
+	background-size:cover;
+}
+#about_section .container{
+	
+	padding-top:100px;
+	padding-bottom: 100px;
+}
+h1{
+	font-family: 'Caveat','HelveticaNeue','Helvetica Neue',Helvetica,Arial,sans-serif;
+	
+}
+#about_section h1{
+	font-size: 4.5rem;
+	text-align:center;
+	color:#fff;
+	margin-bottom:50px ;
+}
+#about_section .cover{
+	background-color: rgba(113,148,48,0.8);
+	
+	width: 100%;
+	height:100%;
+}	
+#about_section .about_box{
+	width: 47%;
+	background-color: rgba(255,255,255,0.9);
+	padding:45px;
+}
+.about_box h3{
+	color:#719430;
+	font-size:4rem;
+	margin-bottom:80px;
+}
+.about_box p{
+	
+	
+	color:#9c9c9c;
+}
+.about_box p span{
+	font-weight:bold;
+	color:#719430;
+}
+.about_box h4{
+	font-size: 28px;	
+	color:#222222;
+}
+.about_box .line{
+	display:inline-block;
+	height:2px;
+	background-color:rgba(177,177,177,0.50);
+	width:50px;
+	text-align: left;
+	margin:22px 0;
+}
+.about_box ul{
+	color:#9c9c9c;
+}
+#info-box{
+	background-color: #658529;
+	color: #ecf2e1;
+}
+
+.parts_of_info{
+	position: relative;
+  display:table-cell;
+  overflow: hidden;
+	
+}
+.parts_of_info h3{
+	letter-spacing: 1px;
+	font-weight: lighter;
+	font-size: 28px;
+  font-family: 'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;
+	padding: 10px 0;
+	margin-bottom: 15px;
+	margin-top: 0.85em;
+}
+.parts_of_info p{
+	margin: 0.85em 0;
+	line-height:30px;
+}
+footer{
+	width: 100%;
+	font-size: 11px;
+	background-color: #425719;
+  color: #f3ffde;
+}
+footer span{
+	
+}
+footer a{
+	text-decoration: none;
+	color:#FFFFFF;
+}
+footer  a:hover, a:focus, a:visited {
+ 	cursor: pointer;
+  text-decoration: underline;
+}
+/*.container_in_footer ul{
+	float: right;
+  margin: -10px 0 0 50px;
+  position: relative;
+	
+  z-index: 150;
+	
+	
+}*/
+footer ul li{
+	color: #f3ffde;
+	
+	height: 100%;
+  float: left;
+	
+}
+#links{
+	margin-top: 15px !important;
+	height: 30px;
+}
+#links li{
+	float: left;
+	height:100%;
+	display: block;
+  width:30px;
+	
+}
+#links a{
+	text-align:center;
+	line-height:30px;
+	height:100%;
+	width:100%;
+	border-radius: 50%;
+	display:block;
+	transition: all 0.3s ease-out;
+}
+#links a:hover{
+	border-radius: 50%;
+	text-decoration: none;
+}
+ #twitter:hover{
+	background-color: #68B2C1;
+}
+#facebook:hover{
+	background-color: #3B3AAF;
+}
+#skype:hover{
+	background-color: #5176B0;
+}
+.sub_menu{
+	
+  /*margin: 6px 5px 6px 0;*/
+	height: 15px;
+}
+
+.sub_menu ul li{
+	float: left;
+  display: block;
+  padding: 1px 0;
+	margin:0 10px;
+}
+#scroll-top{
+	color:rgba(232,232,232,1.00);
+	background-color: rgba(66,87,25,0.70);
+	font-size:12px;
+	position:fixed;
+	width: 50px;
+	height:50px;
+	line-height: 50px;
+	bottom:50px;
+	right:50px;
+	border-radius:2px;
+	transition: all 0.3s ease-out;
+	text-decoration:none;
+	z-index:999999;
+	visibility:hidden;
+}
+#scroll-top:hover{
+	background-color: rgba(240,240,240,0.9);
+	color:rgba(134,134,134,1.00);
+}
+::selection {
+    background-color: #719430;
+    color: #ffffff;
+}
+[data-av_icon]::before {
+	font-family: 'lifestyles';
+  content: attr(data-av_icon);/*
+  speak: none;*/
+}
+@media only screen and (max-width: 989px){
+	.nav-btn{
+		display:block;
+		z-index:9999;
+	}
+	#topMenu{
+		position:fixed;
+		width:100% !important;
+		top:0;
+		left:100vw;
+		bottom:0;
+		display:none ;
+		background-color: #719430;
+		padding:80px 0 !important;
+	}
+	#topMenu > ul{
+	padding: 0 ;
+	
+	float:none;
+	display:block;
+}
+#topMenu > ul li{
+	height:50px;
+	position:relative;
+	margin: 0;
+	padding:0 5px;
+	
+	
+}	
+#search-item{
+	
+	line-height:95px;
+}
+#search-item a{
+	border:none 	!important;
+}
+#search-item span{
+	font-size:18px !important;
+	
+}
+#topMenu ul li{
+	border-bottom:solid 1px rgba(158,206,67,0.2);
+}
+#topMenu ul li:last-child{
+	border-bottom:none !important;
+}
+#topMenu > ul li a
+{	padding: 0 50px;
+	text-align:left;
+	line-height:50px;
+	
+}
+a.active span{
+	color:#fff !important;
+}
+#topMenu > ul li a span{
+	color:#fff;
+	border-color:rgba(255,255,255,1.00) !important;
+}
+#topMenu >ul li:hover a{
+	color: #070707;
+	
+}
+.has_submenu{
+	min-height:200px;
+}
+.has_submenu > a{
+	border-bottom:solid 1px rgba(158,206,67,0.2);
+}
+.has_submenu a{
+	height: 50px !important;
+}
+.has_submenu ul{
+	width: 100%;
+	background-color: transparent;
+	opacity:1;
+	position:static;
+	
+}
+.has_submenu ul li{
+	height:50px !important;
+	padding-left:70px !important;
+}
+.has_submenu ul li a{
+	line-height:50px !important;
+	
+}
+.has_submenu ul li a span{
+	font-size:14px;
+	font-weight:bold;
+}
+.dash{
+	display:inline-block;
+	font-size:20px !important;
+	color: rgba(158,206,67,0.2) !important;
+	margin-right:10px;
+}
+
+}
+@media only screen and (max-width: 768px){
+	.part_1{
+		padding-left:50px;
+		padding-right:50px;
+	}
+	.part_2{
+		height:auto;
+	/*	margin-top:100px;*/
+	}
+	#proposal_box #proposal_pic{
+		
+		display:none;
+	}
+	.about_box{
+		
+		width: 100% !important;
+	}
+}
+</style>
+</head>
+
+<body>
+<div class="main-container">
+	<header>
+  	
+  	<div  id="top_logo">
+    <a href="https://kriesi.at/themes/enfold-health-coach/">
+    <img height="85" width="320" src="images/logo-1.png" alt="Enfold Health Coach" >
+    </a>
+    </div>
+     <nav id="topMenu" class="flex-fill">
+       <ul>
+       	<li><a href=".\enfold.html"><span>Home</span></a></li>
+       	<li><a class="active" href="#"><span>About</span></a></li>
+       	<li class="has_submenu"><a href="#"><span>Services</span></a>
+           
+           <ul>
+           	<li><a href="#"><span class="dash">-</span><span>Mental Health</span></a></li>
+						<li><a href="#"><span class="dash">-</span><span>Nutrition</span></a></li>
+           	<li><a href="#"><span class="dash">-</span><span>Physical Health</span></a></li>
+           </ul>
+           
+        </li>
+       	<li><a href="#"><span>Blog</span></a></li>
+       	<li><a  href="#"><span style="border:2px solid #808080;border-radius:20px;padding:8px;">Contact</span></a></li>
+       </ul>
+     </nav>
+    <div id="nav-itemes"> 
+     <a href="#" data-toggle="popover" data-html="true"  data-placement="bottom"  id="search-item">
+  
+        <span class=" fa fa-search "></span>
+    </a>
+    <div class="popoverContent">
+    	<form>
+           
+           <div class="form-group input-group my-0 p-2">
+             
+             
+             <input type="search" class="form-control" placeholder="Search">
+              <span class="input-group-prepend">
+               <button class="btn search-btn">
+                 <i class="fa fa-search text-white fa-3x"></i>
+               </button>
+             </span>
+             
+            
+           </div>
+          
+             
+            
+        </form>
+        
+      </div>
+  		<button class="nav-btn">
+       <span class="icon-bar"></span>
+       <span class="icon-bar mt-1"></span>
+       <span class="icon-bar mt-1"></span>
+    </button>
+    </div>
+   </header>
+
+	<div class="container-fluid p-0 custom-devider" style="height:12px;">
+<div class="row h-100">
+	<div class="cell cell1 col-3"></div>
+	<div class="cell cell2 col-3" ></div>
+	<div class="cell cell3 col-3"></div>
+	<div class="cell cell4 col-3"></div>
+  
+</div>
+</div>
+<div id="hello" class="container-fluid">
+	<div class="row">
+  
+  
+  <div class="col-12 col-md-6 part part_1">
+    	<h1>Emma <span style="color:rgba(111,145,47,1.00)">Fold</span></h1>
+  
+  		<section>
+      <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis <a href="https://kriesi.at/themes/enfold-health-coach/#">parturient montes</a>, nascetur ridiculus mus.</p>
+<p>In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt.</p>
+	</section>
+  <span>Donec quam felis, que eu, pretium quis, sem. Nulla consequat massa quis enim.</span>
+  </div>
+  
+  <div class="col-12 col-md-6 part part_2">
+  
+  
+ </div>
+ 
+
+
+  
+  </div>
+
+
+</div>
+<div class="container-fluid px-0 d-flex" id="proposal_box">
+		<div class="col-12 col-md-6" id="proposal_pic"></div>
+		<div class="col-12 col-md-6 " id="proposal_content">
+    	<div id="inner_content">
+        <div style="padding-bottom:20px; font-size:50px;">
+          <h1><span>My </span>philosophy</h1>
+         </div>
+        <section>
+        	<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+          <ul class="px-3">
+          	<li class="my-2"><span>Donec quam felis, ultricies nec</span></li>
+          	<li class="my-2"><span>Pellentesque eu, pretium quis, sem</span></li>
+          	<li class="my-2"><span>Nulla consequat massa quis enim</span></li>
+          </ul>
+          <p>
+          Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus.
+          
+          </p>
+				</section>
+			</div>
+    </div>
+
+</div>
+
+<div class="container-fluid p-0 custom-devider" >
+<div class="row h-100">
+	<div class="cell cell1 col-3"></div>
+	<div class="cell cell2 col-3" ></div>
+	<div class="cell cell3 col-3"></div>
+	<div class="cell cell4 col-3"></div>
+  
+</div>
+</div>
+
+<div id="about_section">
+	<div class="cover">
+	<div class="container px-0" >
+
+		<h1>My Résumé</h1>
+    
+    <div class="row justify-content-between">
+      
+        <div class="about_box">
+        	<h3 class="">Education</h3>
+         <section>
+          <p>2006 – 2008</p>
+      		<h4>Some Funky PHD</h4>
+          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.</p>
+          <span class="line"></span>
+        </section>
+        
+         <section>
+          <p>2004 – 2008</p>
+      		<h4>Some Ivy League College</h4>
+          <p>Donec pede justo, <span>fringilla</span> vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullaollis pretium.</p>
+          <span class="line"></span>
+        </section>
+
+			 <section>
+          <p>2000 – 2004</p>
+      		<h4>Some funky Highschool in Jersey</h4>
+          <p>Aenean vulputate eleifend tellus. Donec pede justo, <span>fringilla </span>vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, ju.</p>
+          
+        </section>  
+        
+        
+        </div>
+        <div class="about_box">
+      	
+        <h3 class="">Previous Jobs</h3>
+         <section>
+          <p>2012 – 2015</p>
+      		<h4>Mental Fitness LLC</h4>
+          <p>Aenean vulputate eleifend tellus. Donec pede justo, <span>fringilla</span> vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, ju.</p>
+          <ul class="px-4">
+          	<li class="my-2">Nullaollis pretium.</li>
+          	<li class="my-2">Vivamus elementum semper nisi.</li>
+          
+          
+          </ul>
+          
+          <span class="line"></span>
+        </section>
+        
+         <section>
+          <p>2008 – 2012</p>
+      		<h4>Body and Health Inc.</h4>
+          <p>Donec pede justo, <span>fringilla</span> vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullaollis pretium.</p>
+          <ul class="px-4">
+          	<li class="my-2">Integer tincidunt. Cras dapibus.</li>
+          	<li class="my-2">Vivamus elementum semper nisi.</li>
+          	<li class="my-2">Aenean vulputate eleifend tellus.</li>
+          
+          </ul>
+         </section>       
+      </div>
+      	
+  	</div>
+  </div>
+  
+
+
+</div>
+</div>
+
+<div class="container-fluid p-0 custom-devider" >
+<div class="row h-100">
+	<div class="cell cell1 col-3"></div>
+	<div class="cell cell2 col-3" ></div>
+	<div class="cell cell3 col-3"></div>
+	<div class="cell cell4 col-3"></div>
+  
+</div>
+</div>
+
+<div class="container-fluid py-5 px-5" id="info-box">
+
+   <div class="row px-5 mx-3">
+  	<section class="col-12 col-md-4 parts_of_info px-4">
+    	<h3>Some Infos</h3>
+      <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.</p>
+    </section>
+  	<section class="col-12 col-md-4 parts_of_info px-4">
+    	<h3>Enfold Health</h3>
+    	<p>Main Street 1, Olcott<br>
+Buffalo, United States</p>
+			<p>+555 283 784 333<br>
+<a style="text-decoration:none; color: #ecf2e1;" href="https://kriesi.at/themes/enfold-health-coach/#">office@enfold-health.com</a></p>
+    </section>
+  	<section class="col-12 col-md-4 parts_of_info px-4">
+    	<h3>Office Hours</h3>
+      <p>Mo-Fr: 8:00-19:00<br>
+Sa: 8:00-14:00<br>
+So: closed</p>
+    </section>
+   </div>
+   
+ </div>
+<footer class="container-fluid px-5">
+
+	<div class="row align-items-center  px-5 mx-5">
+    <span class="flex-fill">© Copyright  - <a href="https://kriesi.at/themes/enfold-health-coach/">Enfold Health Coach</a> - <a href="https://kriesi.at/">Enfold Theme by Kriesi</a></span>
+			
+      
+      <nav class="sub_menu">
+      	<ul>
+        <li>
+        	<a target="_blank" href="https://kriesi.at/themes/enfold-health-coach/services/">
+          	Services
+          </a>  
+        </li>
+        
+        <li>
+        	<a target="_blank" href="https://kriesi.at/themes/enfold-health-coach/contact/">
+          	Contact
+          </a>  
+        </li>
+        
+        <li>
+        	<a target="_blank" href="https://kriesi.at/privacy-policy">Privacy Policy
+          </a>  
+        </li>
+
+				</ul>
+      </nav>
+      <nav>
+      <ul id="links">
+              <li><a target="_blank" id="twitter" href="http://twitter.com/#/" data-av_icon="" title="Twitter"><i class="fa fa-twitter"></i></a>
+              </li>
+              <li><a target="_blank" id="facebook" href="https://kriesi.at/themes/enfold-health-coach/#" data-av_icon="" data-av_iconfont="entypo-fontello" title="Facebook"></a>
+              </li>
+              <li><a target="_blank" id="skype" href="https://kriesi.at/themes/enfold-health-coach/#" data-av_icon="" data-av_iconfont="entypo-fontello" title="Skype"></a>
+              </li>
+      </ul>
+      </nav>
+    </div>	
+	</footer>
+ <a href="#hello" id="scroll-top" title="Scroll to top" class="text-center"><span class="fa fa-chevron-up"></span></a>
+
+</div>
+<script>
+	$(document).ready(function(e) {
+		$(window).scroll(function(){
+			if($("nav").offset().top >=500){
+				 $("#scroll-top").css("visibility","visible");
+				 
+			}
+			else{
+				$("#scroll-top").css("visibility","hidden");
+				
+			}
+			
+		})
+		show_nav=false;
+		
+		$('[data-toggle="popover"]').popover(
+		
+			{
+    	content: $("form").clone(),
+			}
+		);
+    $(".nav-btn").click(function(e) {
+			if(show_nav==false){
+     	 $("#topMenu").show().animate({left: '40vw'},"slow");
+			 $("#search-item").css("color","#fff");
+			 $(".icon-bar").css("background-color","#fff");
+			 $(".icon-bar").eq(0).css("transform","translateY(3.5px) rotate(225deg)");
+			 $(".icon-bar").eq(1).hide();
+			 $(".icon-bar").eq(2).css("transform","translateY(-3.5px) rotate(-225deg)");
+			 
+				show_nav=true;
+				/*$("body").click(function(e) {
+					console.log(e.target.className)
+					if(e.target.className != "topMenu" && e.target.className != "nav-btn" ){
+			$("#topMenu").animate({left: '100vw'},"slow",function(){$(this).hide()});
+				$("#search-item").css("color","#808080");
+				$(".icon-bar").css("background-color","#808080");
+				$(".icon-bar").eq(0).css("transform"," rotate(0deg) translateY(0px)");
+			 
+			 $(".icon-bar").eq(2).css("transform"," rotate(0deg) translateY(0px)");
+			 $(".icon-bar").eq(1).show();
+				show_nav=false;
+					
+    });}*/
+			}else{
+				$("#topMenu").animate({left: '100vw'},"slow",function(){$(this).hide()});
+				$("#search-item").css("color","#808080");
+				$(".icon-bar").css("background-color","#808080");
+				$(".icon-bar").eq(0).css("transform"," rotate(0deg) translateY(0px)");
+			 
+			 $(".icon-bar").eq(2).css("transform"," rotate(0deg) translateY(0px)");
+			 $(".icon-bar").eq(1).show();
+				show_nav=false;
+				
+			}
+			
+    });
+		$("a").on('click', function(event) {
+    // Make sure this.hash has a value before overriding default behavior
+    if (this.hash !== "") {
+      // Prevent default anchor click behavior
+      event.preventDefault();
+
+      // Store hash
+      var hash = this.hash;
+
+      // Using jQuery's animate() method to add smooth page scroll
+      // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+      $('html, body').animate({
+        scrollTop: $(hash).offset().top-100
+      }, 800,"easeInOutExpo", function(){
+   			/*scrollTop: $(hash).offset().top-70;*/
+        // Add hash (#) to URL when done scrolling (default click behavior)
+        
+      });/*window.location.hash = hash;*/
+    }  // End if
+  });
+  });
+
+</script>
+</body>
+</html>
